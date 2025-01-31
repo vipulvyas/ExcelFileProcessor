@@ -1,0 +1,154 @@
+// Variables
+$primary-color: #2185d0;
+$secondary-color: #f8f9fa;
+$text-color: #333;
+$spacing-unit: 1rem;
+$border-radius: 4px;
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+// Global styles
+.app-container {
+  padding: $spacing-unit * 2;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .app-header {
+    color: $primary-color;
+    text-align: center;
+    margin-bottom: $spacing-unit * 2;
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+}
+
+// FileUpload component
+.file-upload {
+  background: $secondary-color;
+  padding: $spacing-unit * 2;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  margin-bottom: $spacing-unit * 2;
+  display: flex;
+
+  .upload-zone {
+    border: 2px dashed $primary-color;
+    padding: $spacing-unit * 2;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 0.9;
+
+    .file-upload-input {
+      // margin-left: 2rem;
+    }
+
+    &:hover {
+      background: rgba($primary-color, 0.1);
+    }
+  }
+
+  .upload-button {
+    flex: 0.1;
+    margin-left: 1rem;
+  }
+}
+
+// OperationsPanel component
+.operations-panel {
+  background: $secondary-color;
+  padding: $spacing-unit * 2;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  margin-bottom: $spacing-unit * 2;
+
+  .operations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+    gap: $spacing-unit;
+  }
+}
+
+// DataTable component
+.data-table {
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  overflow: auto;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead, tbody tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    tbody {
+      display: block;
+      overflow: auto;
+      height: 50vh;
+    }
+
+    th,
+    td {
+      padding: $spacing-unit;
+      border-bottom: 1px solid $secondary-color;
+      text-align: left;
+    }
+
+    th {
+      background: $primary-color;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: $secondary-color;
+    }
+
+    tr:hover {
+      background: rgba($primary-color, 0.05);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .app-container {
+    padding: $spacing-unit;
+  }
+
+  .operations-panel {
+    .operations-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .data-table {
+    overflow-x: auto;
+  }
+}
+
+// Button styles
+.ui.button {
+  &.primary {
+    background-color: $primary-color;
+    color: white;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+.modal {
+  .close.icon {
+    top: 0 !important;
+    color: black !important;
+    right: 0 !important;
+  }
+}
+

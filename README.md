@@ -164,7 +164,7 @@ Excel File Processor is a web application that allows users to upload an Excel f
 
 | Method | Endpoint                                             | Description                          |
 | ------ | ---------------------------------------------------- | ------------------------------------ |
-| POST   | `/api/upload`                                        | Upload an Excel file                 |
+| POST   | `/api/document/upload`                                        | Upload an Excel file                 |
 | POST   | `/api/document/<document_id>/operations`             | Perform an operation on a document   |
 | GET    | `/api/document/<document_id>/latest`                 | Retrieve the latest document version |
 | GET    | `/api/document/<document_id>/versions/<int:version>` | Retrieve a specific document version |

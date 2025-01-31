@@ -6,6 +6,7 @@ import OperationsPanel from "./components/OperationsPanel";
 import ApiService from "./services/apiService";
 import "./styles/App.scss";
 import 'semantic-ui-css/semantic.min.css';
+import { handleExcelExport } from "./components/utils/utils";
 
 const App = () => {
   const [tableData, setTableData] = useState([]);
@@ -29,6 +30,11 @@ const App = () => {
   const handleOperation = async (operation, params) => {
     try {
       setShowLoader(true);
+      if (operation === "download") {
+        handleExcelExport(tableData.data)
+        // window.open(url, "_blank");
+        return;
+      }
       const data = await ApiService.performOperation(documentId, operation, params);
       setDocumentVersion(data.version);
       setTableData(data);

@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_BASE_URL || "http://localhost:2000";
-console.log(process.env.REACT_APP_BASE_URL)
 
 const ApiService = {
   async uploadFile(file) {

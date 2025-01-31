@@ -1,7 +1,12 @@
 import React from "react";
-import { Button, Modal, ModalHeader,
+import { 
+    Button, 
+    Modal, 
+    ModalHeader,
     ModalContent,
-    ModalActions} from "semantic-ui-react";
+    ModalActions,
+    Icon
+} from "semantic-ui-react";
 import { useState } from 'react';
 
 const OperationsPanel = ({ onOperation, documentVersion }) => {
@@ -16,6 +21,7 @@ const OperationsPanel = ({ onOperation, documentVersion }) => {
                 <Button onClick={() => setShowFilterRowModal(true)}>Filter</Button>
                 <Button onClick={() => setShowCombineColumnModal(true)}>Combine Columns</Button>
                 <Button onClick={() => onOperation("undo", {})} disabled={documentVersion < 2}>Undo</Button>
+                <Button onClick={() => onOperation("download", { version: documentVersion })} disabled={documentVersion < 2}><Icon name="download" /></Button>
             </div>
             { showAddColumnModalOpen ? <AddColumnModal 
                 open={showAddColumnModalOpen}

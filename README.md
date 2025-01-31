@@ -10,6 +10,7 @@ Excel File Processor is a web application that allows users to upload an Excel f
   - Filter rows
   - Combine columns
   - Undo operation
+  - Download updated file
 - Display processed data dynamically in a tabular format
 - Frontend built using **React.js** with **Semantic UI React** and **SCSS** for styling
 - Backend powered by **Flask** for data processing
@@ -28,7 +29,7 @@ Excel File Processor is a web application that allows users to upload an Excel f
 1. Clone the repository:
    ```sh
    git clone https://github.com/vipulvyas/ExcelFileProcessor.git
-   cd ExcelFileProcessor/backend
+   cd ExcelFileProcessor/backend-server
    ```
 2. Create a virtual environment and activate it:
    ```sh
@@ -49,7 +50,7 @@ Excel File Processor is a web application that allows users to upload an Excel f
 
 1. Navigate to the frontend directory:
    ```sh
-   cd ../frontend
+   cd ../frontend-server
    ```
 2. Install dependencies:
    ```sh
@@ -164,10 +165,20 @@ Excel File Processor is a web application that allows users to upload an Excel f
 
 | Method | Endpoint                                             | Description                          |
 | ------ | ---------------------------------------------------- | ------------------------------------ |
-| POST   | `/api/document/upload`                                        | Upload an Excel file                 |
+| POST   | `/api/document/upload`                               | Upload an Excel file                 |
 | POST   | `/api/document/<document_id>/operations`             | Perform an operation on a document   |
 | GET    | `/api/document/<document_id>/latest`                 | Retrieve the latest document version |
 | GET    | `/api/document/<document_id>/versions/<int:version>` | Retrieve a specific document version |
+
+
+## Running Tests
+
+To run tests, run the following command in backend-server folder
+
+```bash
+  pytest
+```
+
 
 ## Demo
 

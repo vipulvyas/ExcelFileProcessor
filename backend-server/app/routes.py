@@ -2,29 +2,13 @@ from flask import Blueprint, request, jsonify
 from werkzeug.utils import secure_filename
 from app.models.excel_document import ExcelDocument
 from app.services.excel_service import ExcelService
-import magic
+from app.utils.validator import validate_excel_file
 import os
-
-ALLOWED_EXCEL_MIMES = [
-    'application/vnd.ms-excel',                                       # .xls
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', # .xlsx
-]
-
-def validate_excel_file(file):
-    if not file:
-        return False
-    
-    # Get the mime type of the file using python-magic
-    mime = magic.from_buffer(file.read(2048), mime=True)
-    # Reset file pointer
-    file.seek(0)
-    
-    return mime in ALLOWED_EXCEL_MIMES
 
 api = Blueprint('api', __name__)
 excel_service = ExcelService()
 
-@api.route('/api/upload', methods=['POST'])
+@api.route('/api/document/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'}), 400

@@ -48,7 +48,7 @@ const AddColumnModal = ({ open, onClose, onAddColumn }) => {
 
     return (
         <Modal open={open} onClose={onClose} closeIcon>
-            <ModalHeader>Add Column</ModalHeader>
+            <ModalHeader>Sum of Column</ModalHeader>
             <ModalContent>
                 <div>
                     <label>Column 1:</label>

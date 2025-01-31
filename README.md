@@ -171,7 +171,7 @@ Excel File Processor is a web application that allows users to upload an Excel f
 
 ## Demo
 
-Check out the demo video: [Demo.webm](./Demo.webm) | [jam.dev](https://jam.dev/c/c885d244-8892-4697-9bfc-910d731aea8d)
+Check out the demo video: [Demo.mp4](./Demo.mp4)
 
 ## Author
 

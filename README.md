@@ -4,7 +4,7 @@ Excel File Processor is a web application that allows users to upload an Excel f
 
 ## Features
 
-- Upload and process Excel files (.xlsx, .csv)
+- Upload and process Excel files (.xlsx)
 - Perform operations:
   - Add new columns (Sum of two columns)
   - Filter rows

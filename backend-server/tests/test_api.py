@@ -32,7 +32,7 @@ class TestFileUpload:
         excel_file = sample_excel()
         data = {'file': (excel_file, 'test.xlsx')}
         
-        response = client.post('/api/upload',
+        response = client.post('/api/document/upload',
                              content_type='multipart/form-data',
                              data=data)
         
@@ -41,7 +41,7 @@ class TestFileUpload:
         assert isinstance(response.json['document_id'], str)
 
     def test_upload_without_file(self, client):
-        response = client.post('/api/upload',
+        response = client.post('/api/document/upload',
                              content_type='multipart/form-data',
                              data={})
         
@@ -51,7 +51,7 @@ class TestFileUpload:
     def test_upload_invalid_file_format(self, client):
         data = {'file': (BytesIO(b'invalid data'), 'test.txt')}
         
-        response = client.post('/api/upload',
+        response = client.post('/api/document/upload',
                              content_type='multipart/form-data',
                              data=data)
         
@@ -63,7 +63,7 @@ class TestColumnOperations:
     def uploaded_document_id(self, client, sample_excel):
         excel_file = sample_excel()
         data = {'file': (excel_file, 'test.xlsx')}
-        response = client.post('/api/upload',
+        response = client.post('/api/document/upload',
                              content_type='multipart/form-data',
                              data=data)
         return response.json['document_id']

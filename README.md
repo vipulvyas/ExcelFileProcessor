@@ -1,7 +1,5 @@
 # Excel File Processor
 
-&#x20;&#x20;
-
 Excel File Processor is a web application that allows users to upload an Excel file and perform various operations such as adding a new column, filtering rows, combining columns and undo operation. The application dynamically updates the displayed data in a table format.
 
 ## Features
@@ -65,9 +63,108 @@ Excel File Processor is a web application that allows users to upload an Excel f
 
 ## API Endpoints
 
+### Upload an Excel File
+#### Endpoint: `POST /api/document/upload`
+##### Payload: 
+```json
+{    
+  "file": "<Excel file>" // in form data
+}
+```
+##### Response:
+```json
+{
+  "message": "File uploaded successfully",
+  "document_id": "<document_id>",
+  "data": [<processed data>],
+  "columns": [<column names>]
+}
+```
+
+### Perform an Operation on a Document
+#### Endpoint: `POST /api/document/<document_id>/operations`
+##### Payload Examples:
+
+**Add Column**
+```json
+{
+  "type": "addColumn",
+  "params": {
+      "columnName1": "Price",
+      "columnName2": "Tax",
+      "newColumnName": "Total"
+  }
+}
+```
+
+**Filter Rows**
+```json
+{
+  "type": "filterRows",
+  "params": {
+      "condition": "Price > 70000"
+  }
+}
+```
+
+**Combine Columns**
+```json
+{
+  "type": "combineColumns",
+  "params": {
+      "columnName1": "Price",
+      "columnName2": "Tax",
+      "separator": " % ",
+      "newColumnName": "Price % Tax"
+  }
+}
+```
+
+**Undo Operation**
+```json
+{
+  "type": "undo",
+  "params": {}
+}
+```
+
+##### Response:
+```json
+{
+  "message": "Operation completed successfully",
+  "version": <new_version>,
+  "data": [<updated data>],
+  "columns": [<updated columns>]
+}
+```
+
+### Retrieve the Latest Document Version
+#### Endpoint: `GET /api/document/<document_id>/latest`
+##### Response:
+```json
+{
+  "document_id": "<document_id>",
+  "version": <latest_version>,
+  "data": [<latest data>],
+  "columns": [<latest columns>]
+}
+```
+
+### Retrieve a Specific Document Version
+#### Endpoint: `GET /api/document/<document_id>/versions/<int:version>`
+##### Response:
+```json
+{
+  "document_id": "<document_id>",
+  "version": <requested_version>,
+  "data": [<versioned data>],
+  "columns": [<versioned columns>]
+}
+```
+
 | Method | Endpoint                                             | Description                          |
 | ------ | ---------------------------------------------------- | ------------------------------------ |
-| POST   | `/api/document/upload`                               | Upload an Excel file                 |
+| POST   | `/api/upload`                                        | Upload an Excel file                 |
 | POST   | `/api/document/<document_id>/operations`             | Perform an operation on a document   |
 | GET    | `/api/document/<document_id>/latest`                 | Retrieve the latest document version |
 | GET    | `/api/document/<document_id>/versions/<int:version>` | Retrieve a specific document version |
@@ -87,3 +184,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Author
 
 Developed by **Vipul Vyas**
+
+---
+
+For more details, visit [GitHub Repository](https://github.com/vipulvyas/ExcelFileProcessor).
+

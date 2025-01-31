@@ -1,12 +1,12 @@
 # Excel File Processor
 
-Excel File Processor is a web application that allows users to upload an Excel file and perform various operations such as adding a new column, filtering rows, combining columns and undo operation. The application dynamically updates the displayed data in a table format.
+Excel File Processor is a web application that allows users to upload an Excel file and perform various operations such as adding a new column (Sum of two columns), filtering rows, combining columns and undo operation. The application dynamically updates the displayed data in a table format.
 
 ## Features
 
 - Upload and process Excel files (.xlsx, .csv)
 - Perform operations:
-  - Add new columns
+  - Add new columns (Sum of two columns)
   - Filter rows
   - Combine columns
   - Undo operation
